@@ -1,0 +1,68 @@
+/gyroscope/misalignment, 1f, 0f, 0f, 0f, 1f, 0f, 0f, 0f, 1f
+/gyroscope/sensitivity, 16.49091f, 16.41729f, 16.39091f
+/gyroscope/bias, 3.774f, 8.298f, 0.154f
+/accelerometer/misalignment, 0.984751f, -4.5E-05f, 0.000965f, -0.024568f, 0.979859f, -0.01154f, 0.021005f, 0.007425f, 0.979676f
+/accelerometer/sensitivity, 127.9363f, 127.9362f, 127.9362f
+/accelerometer/bias, -2.51126f, -7.455272f, -5.930504f
+/softiron, 0.060633f, -0.000396f, -2.3E-05f, 0.000355f, 0.061112f, -0.000843f, 0.000267f, 0.000818f, 0.062011f
+/hardiron, 5.460311f, 9.710718f, 17.06031f
+/name, "NGIMU-Red"
+/serialnumber, "0029B94A"
+/firmware, "v0.5 (Dec 18 2015 00:01:57)"
+/bootloader, "v0.2 (Jun  5 2015 21:50:40)"
+/hardware, "v1.0 (April 2015)"
+/wifi/enabled, True
+/wifi/firmware, "1.1.0"
+/wifi/mac, "0023A75C526C"
+/wifi/ip, "192.168.1.6"
+/wifi/mode, 1
+/wifi/antenna, 0
+/wifi/ap/band, 0
+/wifi/ap/2ghzchannel, 1
+/wifi/ap/5ghzchannel, 36
+/wifi/client/ssid, "NGIMU-AP-DEVICE"
+/wifi/client/key, "password"
+/wifi/client/dhcp, True
+/wifi/client/ip, "192.168.1.99"
+/wifi/client/subnet, "255.255.255.0"
+/wifi/client/gateway, "192.168.1.1"
+/wifi/send/ip, "192.168.1.2"
+/wifi/send/port, 8006
+/wifi/listen/port, 9000
+/wifi/throughput, True
+/serial/enabled, True
+/serial/baud, 115200
+/serial/error, -0.1607742f
+/serial/rtscts, False
+/serial/invert, False
+/ahrs/gain, 0.5f
+/ahrs/magnetometer, False
+/ahrs/magnetic/min, 20f
+/ahrs/magnetic/max, 70f
+/rate/sensors, 50f
+/rate/quaternion, 50f
+/rate/matrix, 0f
+/rate/euler, 0f
+/rate/linear, 0f
+/rate/earth, 0f
+/rate/temperature, 1f
+/rate/humidity, 1f
+/rate/battery, 1f
+/rate/analogue, 0f
+/auxserial/enabled, True
+/auxserial/baud, 115200
+/auxserial/error, -0.1607742f
+/auxserial/rtscts, False
+/auxserial/invert, False
+/auxserial/passthrough, False
+/auxserial/string, False
+/auxserial/buffer, 1024
+/auxserial/timeout, 16
+/auxserial/framing, -1
+/currentlimit, True
+/sleeptimer, 0
+/motiontrigger, False
+/battery/voltage, 3.2f
+/battery/capacity, 1000f
+/battery/health, 136.5234f
+/battery/cycles, 3.99f

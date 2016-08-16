@@ -1,0 +1,10 @@
+<Session>
+  <SessionInformation Name="My Session" Date="2016-02-16 01:35:29" Duration="00:00:10.654" />
+  <ApplicationInformation ApplicationName="MultiLogger" ApplicationVersion="0.0.5889.31610" ApiVersion="0.0.5889.31608" />
+  <UserInformation UserName="Seb" MachineName="SAMSUNG" />
+  <Devices>
+    <Device SerialNumber="0029D0B4" DeviceName="NGIMU-Blue" ConnectionType="Udp" DirectoryName="NGIMU-Blue - 0029D0B4" />
+    <Device SerialNumber="0029C1DA" DeviceName="NGIMU-Green" ConnectionType="Udp" DirectoryName="NGIMU-Green - 0029C1DA" />
+    <Device SerialNumber="0029B94A" DeviceName="NGIMU-Red" ConnectionType="Udp" DirectoryName="NGIMU-Red - 0029B94A" />
+  </Devices>
+</Session>

@@ -1,0 +1,68 @@
+/gyroscope/misalignment, 1f, 0f, 0f, 0f, 1f, 0f, 0f, 0f, 1f
+/gyroscope/sensitivity, 16.4421f, 16.36074f, 16.4371f
+/gyroscope/bias, -1.861446f, 2.060241f, 0.64012f
+/accelerometer/misalignment, 0.98541f, 0.010925f, 0.002429f, -0.0268f, 0.989142f, -0.005938f, 0.016783f, 0.000314f, 0.982877f
+/accelerometer/sensitivity, 128.3286f, 128.3286f, 128.3286f
+/accelerometer/bias, -4.432992f, -2.821728f, -7.944354f
+/softiron, 0.058502f, 6.4E-05f, -0.000267f, 0.000807f, 0.058863f, 6.8E-05f, 0.000593f, 0.000705f, 0.061363f
+/hardiron, -5.656773f, 1.648154f, -12.15156f
+/name, "NGIMU-Green"
+/serialnumber, "0029C1DA"
+/firmware, "v0.5 (Dec 18 2015 00:01:57)"
+/bootloader, "v0.2 (Jun  5 2015 21:50:40)"
+/hardware, "v1.0 (April 2015)"
+/wifi/enabled, True
+/wifi/firmware, "1.1.0"
+/wifi/mac, "0023A75C5210"
+/wifi/ip, "192.168.1.7"
+/wifi/mode, 1
+/wifi/antenna, 0
+/wifi/ap/band, 0
+/wifi/ap/2ghzchannel, 1
+/wifi/ap/5ghzchannel, 36
+/wifi/client/ssid, "NGIMU-AP-DEVICE"
+/wifi/client/key, "password"
+/wifi/client/dhcp, True
+/wifi/client/ip, "192.168.1.99"
+/wifi/client/subnet, "255.255.255.0"
+/wifi/client/gateway, "192.168.1.1"
+/wifi/send/ip, "192.168.1.2"
+/wifi/send/port, 8007
+/wifi/listen/port, 9000
+/wifi/throughput, True
+/serial/enabled, True
+/serial/baud, 115200
+/serial/error, -0.1607742f
+/serial/rtscts, False
+/serial/invert, False
+/ahrs/gain, 0.5f
+/ahrs/magnetometer, False
+/ahrs/magnetic/min, 20f
+/ahrs/magnetic/max, 70f
+/rate/sensors, 50f
+/rate/quaternion, 50f
+/rate/matrix, 0f
+/rate/euler, 0f
+/rate/linear, 0f
+/rate/earth, 0f
+/rate/temperature, 1f
+/rate/humidity, 1f
+/rate/battery, 1f
+/rate/analogue, 0f
+/auxserial/enabled, True
+/auxserial/baud, 115200
+/auxserial/error, -0.1607742f
+/auxserial/rtscts, False
+/auxserial/invert, False
+/auxserial/passthrough, False
+/auxserial/string, False
+/auxserial/buffer, 1024
+/auxserial/timeout, 16
+/auxserial/framing, -1
+/currentlimit, True
+/sleeptimer, 0
+/motiontrigger, False
+/battery/voltage, 3.2f
+/battery/capacity, 1000f
+/battery/health, 114.4531f
+/battery/cycles, 3.68f
