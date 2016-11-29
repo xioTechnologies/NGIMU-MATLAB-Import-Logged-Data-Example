@@ -33,7 +33,7 @@ function sessionData = importSession(sessionDirectory)
         end
 
         % List files in device directory
-        directoryPath = [sessionDirectory '/' directoryList(directoryIndex).name '/'];
+        directoryPath = [sessionDirectory filesep directoryList(directoryIndex).name filesep];
         fileList = dir(directoryPath);
 
         % Add each CSV file to data structure
