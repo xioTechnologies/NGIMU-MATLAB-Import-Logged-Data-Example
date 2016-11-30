@@ -1,4 +1,4 @@
-function [time, resampledSessionData] = resampleSession(sessionData, newSamplePeriod)
+function [resampledSessionData, time] = resampleSession(sessionData, newSamplePeriod)
 
     % Copy original structure
     resampledSessionData = sessionData;
