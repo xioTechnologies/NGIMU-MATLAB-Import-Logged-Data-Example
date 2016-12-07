@@ -15,7 +15,7 @@ function [resampledSessionData, time] = resampleSession(sessionData, newSamplePe
             end
         end
     end
-    endTime = ceil(endTime);
+    endTime = floor(endTime / newSamplePeriod) * newSamplePeriod;
 
     % Create resampled time vector
     time = [0:newSamplePeriod:endTime]';
@@ -64,7 +64,8 @@ function [resampledSessionData, time] = resampleSession(sessionData, newSamplePe
                 % Interpolate data column
                 resampledSessionData.(deviceName).(csvFileName).(csvColumnName) = interp1(sessionData.(deviceName).(csvFileName).time, ...
                                                                                           sessionData.(deviceName).(csvFileName).(csvColumnName), ...
-                                                                                          time);
+                                                                                          time, ...
+                                                                                          'linear', 'extrap');
             end
         end
     end
@@ -73,7 +74,7 @@ end
 function interpolatedQuaternion = interpolateQuaternion(orginalTime, orginalQuaternion, newTime)
 
     % Linear interpolation, TODO: use slerp, https://en.wikipedia.org/wiki/Slerp
-    interpolatedQuaternion = interp1(orginalTime, orginalQuaternion, newTime);
+    interpolatedQuaternion = interp1(orginalTime, orginalQuaternion, newTime, 'linear', 'extrap');
 
     % Normalise quaternion
     numberOfRows = size(interpolatedQuaternion, 1);
@@ -81,4 +82,3 @@ function interpolatedQuaternion = interpolateQuaternion(orginalTime, orginalQuat
         interpolatedQuaternion(rowIndex,:) = interpolatedQuaternion(rowIndex,:) * (1 / norm(interpolatedQuaternion(rowIndex,:)));
     end
 end
-

@@ -16,7 +16,7 @@ function sessionData = importSession(sessionDirectory)
         end
     end
     if invalid
-        warning('Session.xml not found. This may because the specified directory is not a session directory, or because the logging has not yet completed.');
+        warning('Session.xml not found. This may be because the specified directory is not a session directory, or because the logging has not yet completed.');
     end
 
     % Loop through each device directory
