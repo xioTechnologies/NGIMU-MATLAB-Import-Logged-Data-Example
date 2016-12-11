@@ -1,4 +1,26 @@
-function sessionData = importSession(sessionDirectory)
+function sessionData = importSession(sessionDirectory, varargin)
+% IMPORTSESSION Imports logged NGIMU data.
+%
+%    sessionData = importSession(sessionDirectory), Imports a session
+%    directory containing data from one or more NGIMU.
+%
+%    sessionData = importSession(sessionDirectory, 'FileNames', fileNames),
+%    Imports a session directory containing data from one or more devices.
+%    Only the file names specified in the fileNames cell array will be
+%    imported.  Importing only the necessary files is faster and uses less
+%    memory.
+
+    % Set optional argument default values
+    fileNames = {};
+
+    % Get optional arguments
+    for index = 1:2:(nargin - 1)
+        if strcmp(varargin{index}, 'FileNames')
+            fileNames = varargin{index + 1};
+            continue;
+        end
+        error('Unexpected argument.');
+    end
 
     % List directories and files in session directory
     directoryList = dir(sessionDirectory);
@@ -37,7 +59,7 @@ function sessionData = importSession(sessionDirectory)
         fileList = dir(directoryPath);
 
         % Add each CSV file to data structure
-        deviceName = formatFieldName(directoryList(directoryIndex).name);
+        deviceName = formatFieldName(directoryList(directoryIndex).name, false);
         for fileIndex = 1:length(fileList)
             filePath = [directoryPath fileList(fileIndex).name];
 
@@ -47,13 +69,20 @@ function sessionData = importSession(sessionDirectory)
                 continue;
             end
 
+            % Skip if not in specified list of file names
+            if ~isempty(fileNames)
+                if strcmp(name, fileNames) == 0
+                    continue;
+                end
+            end
+
             % Read CSV headings
             fileID = fopen(filePath);
             csvHeadings = strsplit(fgets(fileID), ',');
             fclose(fileID);
 
             % Read CSV file
-            fileName = formatFieldName(name);
+            fileName = formatFieldName(name, false);
             csvData = dlmread(filePath, ',', 1, 0);
 
             % Remove repeated samples
@@ -61,10 +90,15 @@ function sessionData = importSession(sessionDirectory)
 
             % Add each column to data structure
             for headingIndex = 1:length(csvHeadings)
-                heading = formatFieldName(csvHeadings{headingIndex});
+                heading = formatFieldName(csvHeadings{headingIndex}, true);
                 sessionData.(deviceName).(fileName).(heading) = csvData(:,headingIndex);
             end
         end
+    end
+
+    % Error if no data imported
+    if ~exist('sessionData', 'var')
+        error('No data was imported.');
     end
 
     % Add device names to data structure
@@ -133,17 +167,19 @@ function sessionData = importSession(sessionDirectory)
     end
 end
 
-function fieldName = formatFieldName(originalText)
+function fieldName = formatFieldName(string, isCsvColumnHeading)
 
-    % Remove trailing parentheses
-    splitOriginalText = strsplit(originalText, '(');
-    formattedOriginalString = splitOriginalText{1};
+    % Remove trailing parentheses if string is CSV column heading
+    if isCsvColumnHeading
+        splitOriginalText = strsplit(string, '(');
+        string = splitOriginalText{1};
+    end
 
     % Remove non-alphanumeric characters
-    formattedOriginalString(~ismember(formattedOriginalString, ['0':'9', 'A':'Z', 'a':'z'])) = ' ';
+    string(~ismember(string, ['0':'9', 'A':'Z', 'a':'z'])) = ' ';
 
     % Create lower camel case string
-    words = lower(strsplit(formattedOriginalString, ' '));
+    words = lower(strsplit(string, ' '));
     fieldName = words{1};
     for wordIndex = 2:length(words)
         if length(words{wordIndex}) == 0
